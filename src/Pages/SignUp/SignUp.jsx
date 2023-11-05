@@ -1,16 +1,34 @@
 import { Link } from 'react-router-dom';
 import loginbg from '../../assets/img/loginbg/loginbg.jpg'
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+import auth from '../../Firebase/FireBase.config';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const SignUp = () => {
-    const handleSignUpForm=(e)=>{
+    const { handleSignUp } = useContext(AuthContext)
+    const handleSignUpForm = (e) => {
         e.preventDefault()
-        const form=e.target;
-        const name=form.name.value;
-        const email=form.email.value;
-        const photoUrl=form.photourl.value;
-        const password=form.password.value;
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoUrl = form.photourl.value;
+        const password = form.password.value;
 
-        console.log(name,email,photoUrl,password)
+        // console.log(name,email,photoUrl,password)
+        handleSignUp(email, password)
+            .then(result => {
+                // console.log(result);
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: photoUrl
+                }).then(() => {
+                    toast.success("SuccessFully Sign Up")
+                }).catch((error) => {
+                    toast.success("SomeThing is Wrong Please Try Again")
+                })
+            }).catch(err => toast.success("SomeThing is Wrong Please Try Again"))
     }
     return (
         <div>
@@ -44,7 +62,7 @@ const SignUp = () => {
                                 <input type="password" placeholder="password" className="input input-bordered" name='password' required />
                             </div>
                             <div className="form-control mt-6">
-                            <input type="submit" value="Sign Up" className="btn btn-primary text-[17px]"/>
+                                <input type="submit" value="Sign Up" className="btn btn-primary text-[17px]" />
                             </div>
                         </form>
                         <div className='flex justify-center items-center -mt-5'>
@@ -57,6 +75,7 @@ const SignUp = () => {
                         <div className='flex justify-center mb-5'>
                             <p className='text-[18px] font-semibold'>Have An Account <Link to={'/login'} className='text-blue-700 font-bold'>Sign In</Link></p>
                         </div>
+                        <ToastContainer></ToastContainer>
                     </div>
                 </div>
             </div>
