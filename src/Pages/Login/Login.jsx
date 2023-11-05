@@ -15,6 +15,7 @@ const Login = () => {
         handleSignIn(email, password)
             .then(result=>{
                 toast.success("SuccessFully Sign In")
+                form.reset()
             }).catch(err=>{
                 toast.error("Your Emaill or Password is wrong")
             })
