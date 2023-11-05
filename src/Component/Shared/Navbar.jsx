@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
 
-const Navbar = ({ children }) => {
+const Navbar = () => {
   const navItem = <>
     <li><NavLink to={'/'}>Home</NavLink></li>
     <li><NavLink to={'/assignment'}>Assignments</NavLink></li>
