@@ -6,6 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
+  // apiKey: import.meta.env.VITE_apiKey,
+  // authDomain: import.meta.env.VITE_authDomain,
+  // projectId: import.meta.env.VITE_projectId,
+  // storageBucket: import.meta.env.VITE_storageBucket,
+  // messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  // appId: import.meta.env.VITE_appId
   apiKey: "AIzaSyDhtUSWk4cfksR6CvnWH5fc127mm3-NWRk",
   authDomain: "online-group-study-86949.firebaseapp.com",
   projectId: "online-group-study-86949",

@@ -1,30 +1,49 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginbg from '../../assets/img/loginbg/loginbg.jpg'
 import { FcGoogle } from 'react-icons/fc';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'
 const Login = () => {
-    const { handleSignIn,handleGoogleSignIn } = useContext(AuthContext)
+    const { handleSignIn, handleGoogleSignIn } = useContext(AuthContext)
+    const location = useLocation()
+    console.log(location);
+    const navigate = useNavigate()
     const handleSignInForm = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         handleSignIn(email, password)
-            .then(result=>{
-                toast.success("SuccessFully Sign In")
-                form.reset()
-            }).catch(err=>{
-                toast.error("Your Emaill or Password is wrong")
+            .then(result => {
+                Swal.fire({
+                    title: 'SuccessFully Sign In',
+                    // text: 'Do you want to continue',
+                    icon: 'success',
+                    // confirmButtonText: 'Cool'
+                  })
+              
+                    navigate(location?.state?location.state:'/');
+                
+                
+
+            }).catch(err => {
+                Swal.fire({
+                    title: 'Your email or password is wrong',
+                    // text: 'Do you want to continue',
+                    icon: 'error',
+                    // confirmButtonText: 'Cool'
+                  })
             })
         // console.log(email,password)
     }
-    const handleGoogleLogIn=()=>{
+    const handleGoogleLogIn = () => {
         handleGoogleSignIn()
-        .then(result=> toast.success("SuccessFully Sign In"))
-        .catch(err=> toast.error("Your Emaill or Password is wrong"))
+            .then(result => {
+                toast.success("SuccessFully Sign In")
+                navigate(location?.state?location.state:'/');
+            })
+            .catch(err => toast.error("Your Emaill or Password is wrong"))
     }
     return (
         <div>
@@ -61,10 +80,10 @@ const Login = () => {
                                 <FcGoogle className='text-2xl'></FcGoogle><span className='font-bold text-lg' >Sign In With Google</span>
                             </div>
                         </div>
+
                         <div className='flex justify-center mb-5'>
                             <p className='text-[18px] font-semibold'>Do't Have An Account <Link to={'/signup'} className='text-blue-700 font-bold'>Sign Up</Link></p>
                         </div>
-                        <ToastContainer></ToastContainer>
                     </div>
                 </div>
             </div>
