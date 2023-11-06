@@ -27,8 +27,8 @@ const AssignmentCard = ({ assignment }) => {
                         <Link to={`/updateAssignment/${_id}`}>
                         <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"><span>Update</span> <FaEdit></FaEdit></div>
                         </Link>
-                       <Link to={`/viewDetails/${_id}`}>
-                       <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"><span>View Details</span><FaArrowRight></FaArrowRight></div>
+                       <Link to={`/assignmentDetails/${_id}`}>
+                       <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"><span>Assignment Details</span><FaArrowRight></FaArrowRight></div>
                        </Link>
                     </div>
                 </div>

@@ -28,8 +28,13 @@ const Navbar = () => {
     <li><NavLink to={'/'}>Home</NavLink></li>
     <li><NavLink to={'/assignment'}>Assignments</NavLink></li>
     <li><NavLink to={'/createassignment'}>Create Assignments</NavLink></li>
+    <li><NavLink to={'/myAssignments'}>My Assignments</NavLink></li>
     {
-      user ? <li onClick={handleLogOut}><Link>Sign Out</Link></li>
+      user ?
+        <>
+
+          <li onClick={handleLogOut}><Link>Sign Out</Link></li>
+        </>
         :
         <li><NavLink to={'/login'}>Sign In</NavLink></li>
 
@@ -38,7 +43,7 @@ const Navbar = () => {
 
   </>
   return (
-    <div className="navbar bg-[var(--bg-primary)] text-white font-bold px-10">
+    <div className="navbar bg-[var(--bg-primary)] text-white font-bold px-10 ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

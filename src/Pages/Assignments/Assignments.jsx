@@ -8,7 +8,7 @@ const Assignments = () => {
             <div className="my-10 text-center">
           
                 <h1 className="text-6xl mb-1">Assignments For You</h1>
-                <p className="text-[16px]">see assignment accept challenge and increase your knowledge</p>
+                <p className="text-[16px] mt-2">see assignment accept challenge and increase your knowledge</p>
                 <div className="bg-[var(--bg-primary)] h-[3px] mt-2 w-[20%] mx-auto"></div>
             </div>
             {

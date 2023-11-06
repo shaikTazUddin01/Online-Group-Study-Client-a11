@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2'
+// import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
     const { handleSignIn, handleGoogleSignIn } = useContext(AuthContext)
     const location = useLocation()
@@ -40,10 +41,22 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         handleGoogleSignIn()
             .then(result => {
-                toast.success("SuccessFully Sign In")
+                Swal.fire({
+                    title: 'SuccessFully Sign In',
+                    // text: 'Do you want to continue',
+                    icon: 'success',
+                    // confirmButtonText: 'Cool'
+                  })
                 navigate(location?.state?location.state:'/');
             })
-            .catch(err => toast.error("Your Emaill or Password is wrong"))
+            .catch(err => {
+                Swal.fire({
+                    title: 'Your email or password is wrong',
+                    // text: 'Do you want to continue',
+                    icon: 'error',
+                    // confirmButtonText: 'Cool'
+                  })
+            })
     }
     return (
         <div>
@@ -85,6 +98,7 @@ const Login = () => {
                             <p className='text-[18px] font-semibold'>Do't Have An Account <Link to={'/signup'} className='text-blue-700 font-bold'>Sign Up</Link></p>
                         </div>
                     </div>
+                    {/* <ToastContainer></ToastContainer> */}
                 </div>
             </div>
         </div>
