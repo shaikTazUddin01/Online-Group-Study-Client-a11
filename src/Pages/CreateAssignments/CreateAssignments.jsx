@@ -38,7 +38,7 @@ const CreateAssignments = () => {
             .then(data => {
                 if (data.insertedId) {
                     toast.success('SuccessFully Added a New Assignment')
-                    form.reset()
+                    // form.reset()
                 } else {
                     toast.error("Something is wrong please try again")
                 }
