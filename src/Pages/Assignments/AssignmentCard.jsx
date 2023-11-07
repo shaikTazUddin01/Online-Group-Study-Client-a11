@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
     const { user } = useContext(AuthContext)
     const currentUser = user?.email;
+    // console.log(user)
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignment;
     //check current user to update assignment
     const handleUserEdit = () => {
@@ -24,7 +25,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
     const handleDeleteAssignment = (id) => {
         console.log(id);
 
-//check confirm deleting
+        //check confirm deleting
         Swal.fire({
             title: "Are you sure?",
             text: "To Delete this Assignment",
@@ -71,7 +72,6 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
                     <h2 className="text-2xl font-semibold">
                         {title}
                     </h2>
-                   
                     <p className='font-medium -mt-2 text-[#4e37aa]'>{date}</p>
                     <p>{discription?.slice(0, 100)}<span className='text-black font-semibold text-lg'> ....</span></p>
                     <div className='flex justify-between'>
@@ -103,6 +103,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
                         </Link>
                     </div>
                     <ToastContainer></ToastContainer>
+                <p className='text-center'><span className='font-semibold'>Creadet : </span><span className='text-sm font-semibold'>{userName}</span><span className='text-blue-700'>({userEmail})</span></p>
                 </div>
             </div>
         </div>

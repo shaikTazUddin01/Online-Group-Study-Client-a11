@@ -6,6 +6,7 @@ import Swal from 'sweetalert2'
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext)
+  const [open,setopen]=useState(false)
   // console.log(user)
   const handleLogOut = () => {
     handleSignOut()
@@ -29,16 +30,55 @@ const Navbar = () => {
     <li><NavLink to={'/assignment'}>Assignments</NavLink></li>
     <li><NavLink to={'/createassignment'}>Create Assignments</NavLink></li>
     <li><NavLink to={'/myAssignments'}>My Assignments</NavLink></li>
-    {
+    {/* {
       user ?
         <>
 
           <li onClick={handleLogOut}><Link>Sign Out</Link></li>
-          {/* <li ><Link>{user.email}</Link></li> */}
+  
         </>
         :
         <li><NavLink to={'/login'}>Sign In</NavLink></li>
 
+    } */}
+
+
+    {
+      user ?
+        <div className="pl-2">
+          <div className='flex flex-col lg:justify-center lg:items-center px-5 lg:px-0'>
+            <abbr title="Click here to see profile" onClick={() => setopen(!open)} >
+              <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full'
+                 />
+            </abbr>
+
+            {
+              open === true ?
+                <div className='lg:mt-40 text-white border border-[#FFFFF]
+                                 bg-[#2b2b2b] p-4 mt-10 
+                             rounded-md z-20 ml-8 lg:ml-0 lg:mr-40 absolute
+                            text-center shadow-lg shadow-[#858585]'>
+                  <h1 className='' >{user?.displayName && user.displayName}</h1>
+                  <h1 className='lowercase' >{user?.email && user.email}</h1>
+                  <li onClick={handleLogOut} className="bg-[#2b3440] rounded-md 
+                                    py-2 px-3 text-white mt-2
+                                    ">LogOut</li>
+
+                </div>
+                :
+                <div className='hidden absolute font-medium'>
+                  <h1 className='' >{user?.displayName && user.displayName}</h1>
+                  <h1 className='' >{user?.email && user.email}</h1>
+                </div>
+            }
+          </div>
+        </div>
+        :
+        <>
+          <li><NavLink to={'/login'}>Sign In</NavLink></li>
+          {/* <img src={userImg} alt="" className='w-10 h-10 rounded-full'/> */}
+
+        </>
     }
 
 

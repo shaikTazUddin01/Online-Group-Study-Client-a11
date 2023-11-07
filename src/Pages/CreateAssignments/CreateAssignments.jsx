@@ -6,9 +6,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const CreateAssignments = () => {
     const { user } = useContext(AuthContext)
+    // const navigate = useNavigate()
     console.log(user)
     //react date picker
     const [startDate, setStartDate] = useState(new Date());
@@ -22,10 +24,10 @@ const CreateAssignments = () => {
         const date = startDate.toUTCString();
         const discription = form.discription.value;
         const userEmail = user?.email
-        const userName=user?.displayName
+        const userName = user?.displayName
         // console.log(title,PhotoUrl,assignmentLevel,mark,date,discription);
-        const NewAssignment = { title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail , userName}
-
+        const NewAssignment = { title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName }
+        
         console.log(NewAssignment)
         fetch('http://localhost:5000/createAssignment', {
             method: "POST",
@@ -38,7 +40,9 @@ const CreateAssignments = () => {
             .then(data => {
                 if (data.insertedId) {
                     toast.success('SuccessFully Added a New Assignment')
-                    // form.reset()
+                    form.reset()
+                    // navigate('/assignment')
+
                 } else {
                     toast.error("Something is wrong please try again")
                 }

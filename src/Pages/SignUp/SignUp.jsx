@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import loginbg from '../../assets/img/loginbg/loginbg.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const SignUp = () => {
     const { handleSignUp } = useContext(AuthContext)
+    const navigete=useNavigate()
     const handleSignUpForm = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -25,6 +26,7 @@ const SignUp = () => {
                     displayName: name, photoURL: photoUrl
                 }).then(() => {
                     toast.success("SuccessFully Sign Up")
+                    navigete('/')
                 }).catch((error) => {
                     toast.success("SomeThing is Wrong Please Try Again")
                 })
