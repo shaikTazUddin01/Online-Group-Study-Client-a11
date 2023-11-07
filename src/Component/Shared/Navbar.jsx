@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext)
-  console.log(user)
+  // console.log(user)
   const handleLogOut = () => {
     handleSignOut()
       .then(() => {
@@ -34,6 +34,7 @@ const Navbar = () => {
         <>
 
           <li onClick={handleLogOut}><Link>Sign Out</Link></li>
+          {/* <li ><Link>{user.email}</Link></li> */}
         </>
         :
         <li><NavLink to={'/login'}>Sign In</NavLink></li>

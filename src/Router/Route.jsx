@@ -10,12 +10,15 @@ import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import AssignmentDetails from "../Pages/AssignmentDetails/AssignmentDetails";
 import MyAssignments from "../Pages/myAssignments/MyAssignments";
+import UpdateAssignment from "../Pages/UpdateAssignment/UpdateAssignment";
+import Errorpage from "../Pages/ErrorPage/Errorpage";
 
 
 const Route = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement:<Errorpage></Errorpage>,
         children: [
             {
                 index: true,
@@ -46,6 +49,11 @@ const Route = createBrowserRouter([
             {
                 path:'/myAssignments',
                 element:<PrivateRoute><MyAssignments></MyAssignments></PrivateRoute>
+            },
+            {
+                path:'/updateAssignment/:id',
+                element:<PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/createAssignment/${params.id}`)
             }
         ]
     }
