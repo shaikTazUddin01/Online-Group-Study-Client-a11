@@ -6,14 +6,6 @@ const AssignmentDetails = () => {
     const assignmentData = useLoaderData()
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignmentData;
 
-    const handleSubmitAssignment = (e) => {
-        e.preventDefault()
-        const form = e.target;
-        const pdfUrl = form.pdfUrl.value;
-        const quickNote = form.quickNote.value;
-
-        console.log(pdfUrl, quickNote)
-    }
     return (
         <div className='max-w-7xl mx-auto'>
             <div className='text-center mt-10'>

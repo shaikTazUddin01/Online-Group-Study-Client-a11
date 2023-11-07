@@ -29,6 +29,7 @@ const Navbar = () => {
     <li><NavLink to={'/'}>Home</NavLink></li>
     <li><NavLink to={'/assignment'}>Assignments</NavLink></li>
     <li><NavLink to={'/createassignment'}>Create Assignments</NavLink></li>
+    <li><NavLink to={'/submitedAssingment'}>Submitted Assignments</NavLink></li>
     <li><NavLink to={'/myAssignments'}>My Assignments</NavLink></li>
     {/* {
       user ?

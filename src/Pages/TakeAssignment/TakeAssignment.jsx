@@ -3,11 +3,15 @@ import loginbg from '../../assets/img/loginbg/loginbg.jpg'
 import { AuthContext } from '../../Provider/AuthProvider';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import { useLoaderData } from 'react-router-dom';
 
 
 const TakeAssignment = () => {
     const {user}=useContext(AuthContext)
     const{email,displayName}=user;
+
+    const currentAssignment=useLoaderData()
+   const {title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName }=currentAssignment
 
     console.log(email,displayName)
 
@@ -17,9 +21,9 @@ const TakeAssignment = () => {
         const pdfUrl=form.pdfUrl.value;
         const quickNote=form.quickNote.value;
 
-        const takeAssignment={pdfUrl,quickNote,userEmail:email,userName:displayName}
+        const takeAssignment={title,PhotoUrl,mark,pdfUrl,quickNote,userEmail:email,userName:displayName,status:"pending"}
 
-        axios.post('http://localhost:5000/takeAssignment',takeAssignment)
+        axios.post('http://localhost:5000/submitedAssignment',takeAssignment)
         .then(res=>{
             if(res.data.acknowledged){
              toast.success("successfully you submit this Assignment")

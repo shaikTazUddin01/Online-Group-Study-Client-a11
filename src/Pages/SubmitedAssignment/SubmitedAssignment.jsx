@@ -1,0 +1,38 @@
+import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import SubmitedAssTable from './SubmitedAssTable';
+
+const SubmitedAssignment = () => {
+    const submitedAssignment = useLoaderData()
+    return (
+        <div className='min-h-[90vh] mx-auto max-w-7xl px-10'>
+            <h1 className='text-4xl text-center mt-10 font-bold' >All Submited Assignment</h1>
+            <div className="bg-[var(--bg-primary)] h-[3px] mt-3 w-[20%] mx-auto"></div>
+
+            <div className="overflow-x-auto mt-10">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr className='text-xl font-semibold text-black text-center'>
+                            <th>Title</th>
+                            <th>Examinee Name</th>
+                            <th>Total Mark</th>
+                            <th>Status</th>
+                            <th>Give Mark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* row 1 */}
+{
+    submitedAssignment?.map(subAss=><SubmitedAssTable subAss={subAss}></SubmitedAssTable>)
+}
+                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
+
+export default SubmitedAssignment;

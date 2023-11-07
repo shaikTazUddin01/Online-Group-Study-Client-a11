@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 const Login = () => {
     const { handleSignIn, handleGoogleSignIn } = useContext(AuthContext)
     const location = useLocation()
-    console.log(location);
+    // console.log(location);
     const navigate = useNavigate()
     const handleSignInForm = (e) => {
         e.preventDefault()

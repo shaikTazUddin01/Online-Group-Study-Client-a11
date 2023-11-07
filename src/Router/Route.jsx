@@ -13,6 +13,7 @@ import MyAssignments from "../Pages/myAssignments/MyAssignments";
 import UpdateAssignment from "../Pages/UpdateAssignment/UpdateAssignment";
 import Errorpage from "../Pages/ErrorPage/Errorpage";
 import TakeAssignment from "../Pages/TakeAssignment/TakeAssignment";
+import SubmitedAssignment from "../Pages/SubmitedAssignment/SubmitedAssignment";
 
 
 const Route = createBrowserRouter([
@@ -60,6 +61,12 @@ const Route = createBrowserRouter([
                 path:'/takeAssignment/:id',
                 element:<PrivateRoute><TakeAssignment></TakeAssignment></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/createAssignment/${params.id}`)
+            },
+            {
+                path:'/submitedAssingment',
+                element:<SubmitedAssignment></SubmitedAssignment>,
+                loader:()=>fetch('http://localhost:5000/submitedAssignment')
+
             }
         ]
     }
