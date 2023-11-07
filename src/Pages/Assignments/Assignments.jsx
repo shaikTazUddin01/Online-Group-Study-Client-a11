@@ -6,11 +6,11 @@ import axios from "axios";
 const Assignments = () => {
     const loadAssignment = useLoaderData()
     const[assignments,setAssignment]=useState(loadAssignment)
+
     const handleDifficultLevel=(e)=>{
-    //    e.preventDefault();
-    //   const level=e.target.value
-    //   axios.get(`http://localhost:5000/getAssignmentUsingLevel?assignmentLevel=${level}`).then(res=>console.log(res.data))
-    //   .catch(err=>console.log(err))
+      const level=e.target.value
+      axios.get(`http://localhost:5000/getAssignmentUsingLevel?assignmentLevel=${level}`).then(res=>setAssignment(res.data))
+      .catch(err=>console.log(err))
 
     }
     return (
@@ -24,7 +24,7 @@ const Assignments = () => {
                 <div > 
                     <span className="text-xl font-semibold">Filter Assignments Based On Assignment Difficulty Level </span>
                     <select name="" id="" className="rounded border-[var(--bg-primary)] mt-5 border-2 text-lg font-semibold py-1 px-2" onChange={handleDifficultLevel}>
-                        <option value="" >---</option>
+                        <option value="all" >--See All--</option>
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
                         <option value="Hard">Hard</option>
