@@ -95,11 +95,11 @@ const Navbar = () => {
             {navItem}
           </ul>
         </div>
-        <div className="hidden lg:flex">
+        <div className="hidden lg:flex w-1/4">
           <a className=" btn btn-ghost normal-case text-xl">daisyUI</a>
         </div>
       </div>
-      <div className="navbar-end hidden lg:flex">
+      <div className="navbar-end hidden lg:flex w-3/4">
         <ul className="menu menu-horizontal px-1 text-md">
           {navItem}
         </ul>

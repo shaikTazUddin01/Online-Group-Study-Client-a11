@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const CreateAssignments = () => {
     const { user } = useContext(AuthContext)
     // const navigate = useNavigate()
-    console.log(user)
+    // console.log(user)
     //react date picker
     const [startDate, setStartDate] = useState(new Date());
     const handleCreateAssignment = e => {
@@ -28,7 +28,7 @@ const CreateAssignments = () => {
         // console.log(title,PhotoUrl,assignmentLevel,mark,date,discription);
         const NewAssignment = { title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName }
         
-        console.log(NewAssignment)
+        // console.log(NewAssignment)
         fetch('http://localhost:5000/createAssignment', {
             method: "POST",
             headers: {

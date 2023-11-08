@@ -13,7 +13,7 @@ const TakeAssignment = () => {
     const currentAssignment=useLoaderData()
    const {title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName }=currentAssignment
 
-    console.log(email,displayName)
+    // console.log(email,displayName)
 
     const handleTakeAssignment = (e) => {
         e.preventDefault()
@@ -21,7 +21,7 @@ const TakeAssignment = () => {
         const pdfUrl=form.pdfUrl.value;
         const quickNote=form.quickNote.value;
 
-        const takeAssignment={title,PhotoUrl,mark,pdfUrl,quickNote,userEmail:email,userName:displayName,status:"pending"}
+        const takeAssignment={title,PhotoUrl,mark,pdfUrl,quickNote,userEmail:email,userName:displayName,status:"pending",givemark:'',feedBack:''}
 
         axios.post('http://localhost:5000/submitedAssignment',takeAssignment)
         .then(res=>{
@@ -31,7 +31,7 @@ const TakeAssignment = () => {
     })
         .catch(err=>console.log(err))
 
-        console.log(takeAssignment)
+        // console.log(takeAssignment)
     }
     return (
         <div>

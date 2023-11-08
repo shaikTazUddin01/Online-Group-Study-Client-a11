@@ -46,9 +46,9 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
                             });
 
                             const remaning = loadAssignment.filter(assignment => assignment._id !== id);
-                            console.log(id)
+                            // console.log(id)
                             // console.log(id?._id)
-                            console.log(remaning)
+                            // console.log(remaning)
                             setAssignment(remaning);
                         } else {
                             toast.error("Something is wrong please try again")

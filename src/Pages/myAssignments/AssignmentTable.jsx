@@ -1,7 +1,7 @@
 import React from 'react';
 
-const AssignmentTable = ({assignment}) => {
-    const{title,PhotoUrl,mark,pdfUrl,quickNote,userEmail,userName,status}=assignment
+const AssignmentTable = ({ assignment }) => {
+    const { title, PhotoUrl, mark, pdfUrl, quickNote, userEmail, userName, status, feedBack, giveMark } = assignment
     return (
         <tr className='text-center'>
             <td>
@@ -12,21 +12,32 @@ const AssignmentTable = ({assignment}) => {
                         </div>
                     </div>
                     <div>
-                    <div className="font-bold">{title}</div>
-              {/* <div className="text-sm opacity-50">United States</div> */}
+                        <div className="font-bold">{title}</div>
+                        {/* <div className="text-sm opacity-50">United States</div> */}
                     </div>
                 </div>
             </td>
             <td>
-               {mark}
-              
-              
+                {mark}
+
+
             </td>
-            <td>N/A</td>
-            <td>N/A</td>
-            <th>
-                <button className="btn btn-ghost btn-xs">{status}</button>
-            </th>
+            <td>{giveMark ? giveMark : "Processing"}</td>
+            <td>Processing</td>
+            {
+                status == "pending" ?
+                    <th>
+                        <button className="bg-green-700 text-white py-2 px-3 rounded-xl">{
+                            status
+                        }</button>
+                    </th> :
+                    <th>
+                        <button className="bg-[var(--bg-primary)] text-white py-2 px-3 rounded-xl">{
+                            status
+                        }</button>
+                    </th>
+            }
+
         </tr>
 
     );

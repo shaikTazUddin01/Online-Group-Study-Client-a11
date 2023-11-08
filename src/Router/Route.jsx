@@ -14,6 +14,7 @@ import UpdateAssignment from "../Pages/UpdateAssignment/UpdateAssignment";
 import Errorpage from "../Pages/ErrorPage/Errorpage";
 import TakeAssignment from "../Pages/TakeAssignment/TakeAssignment";
 import SubmitedAssignment from "../Pages/SubmitedAssignment/SubmitedAssignment";
+import GIveMark from "../Pages/SubmitedAssignment/GIveMark";
 
 
 const Route = createBrowserRouter([
@@ -64,9 +65,14 @@ const Route = createBrowserRouter([
             },
             {
                 path:'/submitedAssingment',
-                element:<SubmitedAssignment></SubmitedAssignment>,
+                element:<PrivateRoute><SubmitedAssignment></SubmitedAssignment></PrivateRoute>,
                 loader:()=>fetch('http://localhost:5000/submitedAssignment')
 
+            },
+            {
+                path:'/givemark/:id',
+                element:<PrivateRoute><GIveMark></GIveMark></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/submitedAssignment/${params.id}`)
             }
         ]
     }
