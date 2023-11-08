@@ -91,7 +91,6 @@ const CreateAssignments = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold text-lg">Due Date</span>
                                 </label>
-                                {/* <input type="number" placeholder="Add Assignment Mark" className="input input-bordered" name='password' required /> */}
                                 <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className="input input-bordered w-full" />
                             </div>
                             <div className="form-control">

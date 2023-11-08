@@ -3,12 +3,14 @@ import loginbg from '../../assets/img/loginbg/loginbg.jpg'
 import { AuthContext } from '../../Provider/AuthProvider';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const TakeAssignment = () => {
     const {user}=useContext(AuthContext)
     const{email,displayName}=user;
+    const navigate=useNavigate()
 
     const currentAssignment=useLoaderData()
    const {title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName }=currentAssignment
@@ -26,7 +28,15 @@ const TakeAssignment = () => {
         axios.post('http://localhost:5000/submitedAssignment',takeAssignment)
         .then(res=>{
             if(res.data.acknowledged){
-             toast.success("successfully you submit this Assignment")
+                // toast.success("successfully you submit this Assignment")
+                Swal.fire({
+                    title: 'successfully you submit this Assignment',
+                    // text: 'Do you want to continue',
+                    icon: 'success',
+                    // confirmButtonText: 'Cool'
+                  })
+                navigate('/assignment')
+             form.reset()
         }
     })
         .catch(err=>console.log(err))

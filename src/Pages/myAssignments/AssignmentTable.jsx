@@ -23,7 +23,7 @@ const AssignmentTable = ({ assignment }) => {
 
             </td>
             <td>{giveMark ? giveMark : "Processing"}</td>
-            <td>Processing</td>
+            <td>{feedBack ? feedBack : "Processing"}</td>
             {
                 status == "pending" ?
                     <th>

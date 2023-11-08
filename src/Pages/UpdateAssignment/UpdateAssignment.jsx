@@ -1,15 +1,17 @@
 import { useContext, useState } from 'react';
 import loginbg from '../../assets/img/assignmentBg/assignmentbg.jpg';
-// import DatePicker from "react-datepicker";
-// import "react-datepicker/dist/react-datepicker.css";
-import { useLoaderData } from 'react-router-dom';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const UpdateAssignment = () => {
-    // const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date());
     const assignmentData = useLoaderData()
+    const navatage=useNavigate()
     
 
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignmentData;
@@ -21,13 +23,22 @@ const UpdateAssignment = () => {
         const assignmentLevel = form.level.value;
         const mark = form.mark.value;
         const discription = form.discription.value;
+        const date = startDate.toUTCString();
         // console.log(title,PhotoUrl,assignmentLevel,mark,date,discription);
-        const NewAssignment = { title, PhotoUrl, assignmentLevel, mark, discription }
+        const NewAssignment = { title, PhotoUrl, assignmentLevel, mark, discription,date }
+        // console.log(date)
         // if (currentUser === userEmail) {  
             axios.put(`http://localhost:5000/createAssignment/${_id}`, NewAssignment)
                 .then(res => {
                     if (res?.data?.modifiedCount) {
-                        toast.success("Update SuccessFully")
+                        Swal.fire({
+                            title: 'SuccessFully Updated',
+                            // text: 'Do you want to continue',
+                            icon: 'success',
+                            // confirmButtonText: 'Cool'
+                          })
+                      
+                        navatage('/assignment')
     
                     } else {
                         toast.error("something is worng please try again")
@@ -75,12 +86,12 @@ const UpdateAssignment = () => {
                                 </label>
                                 <input type="number" placeholder="Add Assignment Mark" className="input input-bordered" name='mark' required defaultValue={mark} />
                             </div>
-                            {/* <div className="form-control">
+                            <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-semibold text-lg">Due Date</span>
                             </label>
                             <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className="input input-bordered w-full"  />
-                        </div> */}
+                        </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold text-lg">Description</span>
