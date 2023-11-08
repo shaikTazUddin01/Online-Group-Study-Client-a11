@@ -1,0 +1,8 @@
+.pagination button{
+    background: rgb(89, 3, 164);
+    color: white;
+}
+.selected{
+    background: rgb(142, 2, 14) !important;
+    color: white;
+}
