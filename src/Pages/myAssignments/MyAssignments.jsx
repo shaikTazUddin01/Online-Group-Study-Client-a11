@@ -34,7 +34,7 @@ const MyAssignments = () => {
                         {/* row 1 */}
 
                         {
-                            myAssignment?.map(assignment=><AssignmentTable assignment={assignment}></AssignmentTable>)
+                            myAssignment?.map(assignment=><AssignmentTable assignment={assignment} key={assignment?._id}></AssignmentTable>)
                         }
                         
                     </tbody>

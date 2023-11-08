@@ -9,15 +9,15 @@ const AssignmentDetails = () => {
     return (
         <div className='max-w-7xl mx-auto'>
             <div className='text-center mt-10'>
-                <h1 className='text-5xl font-semibold'>Assignment Details</h1>
+                <h1 className='text-3xl md:text-5xl font-semibold'>Assignment Details</h1>
                 <p className='text-lg mt-1'>Take this challenge and make yourself</p>
-                <div className="bg-[var(--bg-primary)] h-[3px] mt-2 w-[15%] mx-auto"></div>
+                <div className="bg-[var(--bg-primary)] h-[3px] mt-2 w-[30%] md:w-[15%] mx-auto"></div>
             </div>
-            <div className='flex mt-10 mb-20 gap-10 justify-center items-center'>
-                <div className='w-3/5'>
+            <div className='flex flex-col lg:flex-row mt-10 mb-20 gap-10 justify-center items-center'>
+                <div className='lg:w-3/5 px-2 md:px-10 lg:px-0'>
                     <img src={PhotoUrl} alt="" className='h-[400px] w-full rounded-xl shadow-xl shadow-[var(--bg-primary)]' />
                 </div>
-                <div className='w-2/5'>
+                <div className=' lg:w-2/5 px-2 md:px-10 lg:px-0'>
                     <h2 className="text-4xl font-semibold">
                         {title}
                     </h2>

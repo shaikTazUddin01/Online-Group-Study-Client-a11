@@ -2,14 +2,14 @@ import faqimg from '../../assets/img/faq/faq.jpg'
 
 const Faq = () => {
     return (
-        <div className='max-w-7xl mx-auto my-20'>
+        <div className='max-w-7xl mx-auto md:my-20'>
             <h1 className='text-5xl font-bold text-center'>Faq Section</h1>
-            <div className="bg-[var(--bg-primary)] h-[3px] mt-4 w-[10%] mx-auto"></div>
-            <div className='flex justify-center items-center gap-10 mt-10'>
-                <div className='w-1/2'>
+            <div className="bg-[var(--bg-primary)] h-[3px] mt-4 w-[30%] md:w-[10%] mx-auto"></div>
+            <div className='flex flex-col md:flex-row justify-center items-center gap-10 mt-10'>
+                <div className='w-[80%] md:w-1/2'>
                     <img src={faqimg} alt="" className='rounded-xl' />
                 </div>
-                <div className='w-1/2 space-y-2'>
+                <div className='w-full md:w-1/2 space-y-2'>
                     <div className="collapse collapse-arrow bg-base-200">
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">

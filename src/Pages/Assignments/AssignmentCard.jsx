@@ -78,10 +78,10 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
                         <p className='font-bold text-xl '>Level: <span className=' text-lg text-red-700'>{assignmentLevel}</span></p>
                         <p className='text-end text-xl font-bold'>Mark: <span className='text-lg text-blue-700'>{mark}</span></p>
                     </div>
-                    <div className="card-actions justify-between">
+                    <div className="card-actions justify-center md:justify-between">
                         {/* check currentuser == userEmail */}
                         {currentUser === userEmail ?
-                            <div className='flex gap-4'>
+                            <div className='flex gap-4 '>
                                 <Link to={`/updateAssignment/${_id}`}>
                                     <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"><FaEdit></FaEdit></div>
                                 </Link>
@@ -90,7 +90,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
 
                             </div>
                             :
-                            <div className='flex gap-4'>
+                            <div className='flex gap-4 '>
                                 <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2" onClick={handleUserEdit}><FaEdit></FaEdit></div>
 
                                 <div className="bg-red-700 text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2" onClick={handleUserdelete}><AiTwotoneDelete></AiTwotoneDelete></div>
@@ -103,7 +103,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
                         </Link>
                     </div>
                     <ToastContainer></ToastContainer>
-                <p className='text-center'><span className='font-semibold'>Creadet : </span><span className='text-sm font-semibold'>{userName}</span><span className='text-blue-700'>({userEmail})</span></p>
+                <p className='text-center'><span className='font-semibold'>Create By : </span><span className='text-sm font-semibold'>{userName}</span> <br /><span className='text-blue-700'>({userEmail})</span></p>
                 </div>
             </div>
         </div>

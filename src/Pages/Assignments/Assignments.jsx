@@ -1,54 +1,31 @@
 import { useLoaderData } from "react-router-dom";
 import AssignmentCard from "./AssignmentCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import './Assignment.css'
-import { AuthContext } from "../../Provider/AuthProvider";
 
 const Assignments = () => {
     const loadAssignment = useLoaderData()
-    // const { loader,setLoader } = useContext(AuthContext);
-    // const [loader, setLoader] = useState(true);
-
-    // const [loadAssignment, setloadAssignment] = useState([])
-    console.log(loadAssignment);
-
+    
+    //set data by filter--->
     const [assignments, setAssignment] = useState(loadAssignment)
 
-    // const count = loadAssignment?.length;
-    // const itemPerPage = 6;
-
-    // const totalPage = Math.ceil(count / itemPerPage)
-
-    // const pages = [...Array(totalPage).keys()]
-    // console.log(pages)
-    // const [currentPage, setcurrentPage] = useState(0)
 
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/createAssignment`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAssignment(data)
-    //             setLoader(false)
-    //         });
+    //pagination
+    const count = loadAssignment?.length;
+    const itemPerPage = 6;
 
-    // }, []);
+    const totalPage = Math.ceil(count / itemPerPage)
+
+    const pages = [...Array(totalPage).keys()]
+    console.log(pages)
+    const [currentPage, setcurrentPage] = useState(0)
 
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/createAssignment?page=${currentPage}&size=${itemPerPage}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setloadAssignment(data)
-    //             setLoader(false)
-    //         });
+    
 
-    // }, [currentPage, itemPerPage]);
-
-    // if (loader) {
-    //     return <p>Loading</p>
-    // }
+     
     const handleDifficultLevel = (e) => {
         const level = e.target.value
         axios.get(`http://localhost:5000/getAssignmentUsingLevel?assignmentLevel=${level}`).then(res => setAssignment(res.data))
@@ -91,7 +68,7 @@ const Assignments = () => {
 
             {
                 assignments?.length > 0 ?
-                    <div className="max-w-7xl mx-auto my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="max-w-7xl mx-auto my-10 grid grid-cols-1  lg:grid-cols-3 gap-6 px-2 md:px-10 lg:px-0">
 
 
                         {
@@ -111,14 +88,14 @@ const Assignments = () => {
 
 
 
-            {/* <p>page: {currentPage}</p>
+            <p>page: {currentPage}</p>
             <div className="text-center my-10 pagination">
                 <button className=" py-2 rounded-md mr-5  px-6 text-[16px]" onClick={handlePri}>Privous</button>
                 {
                     pages?.map(page => <button key={page} onClick={() => setcurrentPage(page)} className={currentPage == page ? 'selected py-2 rounded-md mr-5  px-6 text-[16px]' : 'py-2 rounded-md mr-5  px-6 text-[16px]'}>{page + 1}</button>)
                 }
                 <button className=" py-2 rounded-md mr-5  px-6 text-[16px]" onClick={handleNext}>Next</button>
-            </div> */}
+            </div>
         </div>
     );
 };
