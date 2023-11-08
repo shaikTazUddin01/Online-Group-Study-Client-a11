@@ -30,7 +30,7 @@ const SubmitedAssignment = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            pandingAssignment?.map(subAss => <SubmitedAssTable subAss={subAss}></SubmitedAssTable>)
+                            pandingAssignment?.map(subAss => <SubmitedAssTable subAss={subAss} key={subAss?._d}></SubmitedAssTable>)
                         }
 
 

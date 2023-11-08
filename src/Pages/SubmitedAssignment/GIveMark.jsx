@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 // import PdfCom from './PdfCom';
 //react pdf
 import { pdfjs } from 'react-pdf';
+import Swal from 'sweetalert2';
 // import PdfCom from './PdfCom';
 // //react pdf
 
@@ -14,10 +15,11 @@ const GIveMark = () => {
         'pdfjs-dist/build/pdf.worker.min.js',
         import.meta.url,
     ).toString();
-
-
+    //navigate
+    const navigate = useNavigate()
+    //load data
     const expectedAssignment = useLoaderData()
-    console.log(expectedAssignment)
+    // console.log(expectedAssignment)
     const { _id, title, PhotoUrl, mark, pdfUrl, quickNote, userEmail, userName, status } = expectedAssignment
 
     const handleGiveMark = (event) => {
@@ -32,6 +34,11 @@ const GIveMark = () => {
             .then(res => {
                 if (res.data.modifiedCount) {
                     toast.success("SuccessFully You Marking This Assignment")
+                    Swal.fire({
+                        title: "SuccessFully You Marking This Assignment",
+                        icon: 'success'
+                    })
+                    navigate('/submitedAssingment')
                 } else {
                     toast.error("Already Marking This Assignment")
                 }
@@ -111,11 +118,11 @@ const GIveMark = () => {
                         <p className=' text-2xl font-bold'>Total Mark: <span className='text-xl text-blue-700'>{mark}</span></p>
                     </div>
 
-                   <div>
-                   <a href={pdfUrl}>
-                        <button className='btn btn-success'>PdF Url</button>
-                    </a>
-                   </div>
+                    <div>
+                        <a href={pdfUrl}>
+                            <button className='btn btn-success'>PdF Url</button>
+                        </a>
+                    </div>
                     <p className='text-center md:text-left mt-5 '><span className='text-2xl font-bold'>QuickNote: <span className='font-medium'>{quickNote}</span></span></p>
                     <div className="mt-5 shadow-xl shadow-red-400  border mb-10 rounded-md">
 

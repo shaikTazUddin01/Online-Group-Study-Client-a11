@@ -6,11 +6,8 @@ import './Assignment.css'
 
 const Assignments = () => {
     const loadAssignment = useLoaderData()
-    
-    //set data by filter--->
-    const [assignments, setAssignment] = useState(loadAssignment)
 
-
+    // const[paginationData,setPaginationData]=useState()
 
     //pagination
     const count = loadAssignment?.length;
@@ -23,13 +20,24 @@ const Assignments = () => {
     const [currentPage, setcurrentPage] = useState(0)
 
 
-    
+    useEffect(() => {
+        axios.get(`http://localhost:5000/pagination?page=${currentPage}&size=${itemPerPage}`)
+            .then(res => setAssignment(res.data))
+            .catch(err => console.log(err))
+    }, [currentPage, itemPerPage])
 
-     
+
+
+
+    //set data by filter--->
+    const [assignments, setAssignment] = useState()
+
+
     const handleDifficultLevel = (e) => {
         const level = e.target.value
         axios.get(`http://localhost:5000/getAssignmentUsingLevel?assignmentLevel=${level}`).then(res => setAssignment(res.data))
             .catch(err => console.log(err))
+            setcurrentPage(0)
 
     }
 
@@ -76,7 +84,7 @@ const Assignments = () => {
                         }
 
 
-                        
+
                     </div>
                     :
                     <div className="flex justify-center items-center mt-10">
@@ -88,7 +96,6 @@ const Assignments = () => {
 
 
 
-            <p>page: {currentPage}</p>
             <div className="text-center my-10 pagination">
                 <button className=" py-2 rounded-md mr-5  px-6 text-[16px]" onClick={handlePri}>Privous</button>
                 {
