@@ -3,6 +3,7 @@ import './Navbar.css'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from 'sweetalert2'
+import logo from '/vite.svg'
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext)
@@ -91,7 +92,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="hidden lg:flex w-1/4">
-          <a className=" btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className=" normal-case text-xl flex items-center justify-center gap-2">
+            <img src={logo} alt="" /> <p>logo</p>
+          </a>
         </div>
       </div>
       <div className="navbar-end hidden lg:flex w-3/4">
@@ -101,7 +104,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end flex lg:hidden">
         <div className="">
-          <a className=" btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className=" normal-case text-xl flex items-center justify-center gap-2">
+            <img src={logo} alt="" /> <p>logo</p>
+          </a>
           {/* <ToastContainer></ToastContainer> */}
         </div>
       </div>
