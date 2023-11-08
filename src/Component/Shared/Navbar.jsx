@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext)
-  const [open,setopen]=useState(false)
+  const [open, setopen] = useState(false)
   // console.log(user)
   const handleLogOut = () => {
     handleSignOut()
@@ -28,20 +28,15 @@ const Navbar = () => {
   const navItem = <>
     <li><NavLink to={'/'}>Home</NavLink></li>
     <li><NavLink to={'/assignment'}>Assignments</NavLink></li>
-    <li><NavLink to={'/createassignment'}>Create Assignments</NavLink></li>
-    <li><NavLink to={'/submitedAssingment'}>Submitted Assignments</NavLink></li>
-    <li><NavLink to={'/myAssignments'}>My Assignments</NavLink></li>
-    {/* {
-      user ?
-        <>
 
-          <li onClick={handleLogOut}><Link>Sign Out</Link></li>
-  
-        </>
-        :
-        <li><NavLink to={'/login'}>Sign In</NavLink></li>
-
-    } */}
+    {
+      user &&
+      <>
+        <li><NavLink to={'/createassignment'}>Create Assignments</NavLink></li>
+        <li><NavLink to={'/submitedAssingment'}>Submitted Assignments</NavLink></li>
+        <li><NavLink to={'/myAssignments'}>My Assignments</NavLink></li>
+      </>
+    }
 
 
     {
@@ -50,7 +45,7 @@ const Navbar = () => {
           <div className='flex flex-col lg:justify-center lg:items-center px-5 lg:px-0'>
             <abbr title="Click here to see profile" onClick={() => setopen(!open)} >
               <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full'
-                 />
+              />
             </abbr>
 
             {
