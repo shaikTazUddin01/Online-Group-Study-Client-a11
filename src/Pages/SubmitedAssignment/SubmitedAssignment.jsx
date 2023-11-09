@@ -7,7 +7,10 @@ const SubmitedAssignment = () => {
     const [pandingAssignment,setPandingAssignment]=useState([]);
     const[loader,setLoader]=useState(true)
 
-  
+//   useEffect(()=>{
+
+//   },[])
+
 
     useEffect(()=>{
         const panding=submitedAssignment?.filter(ass=>ass?.status !=='completed')

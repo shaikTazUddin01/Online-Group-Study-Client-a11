@@ -67,11 +67,15 @@ const GIveMark = () => {
                         <p className=' text-2xl font-bold '>Total Mark: <span className='text-xl text-blue-700'>{mark}</span></p>
                     </div>
 
-                    <div>
+                    <div className=''>
+                    <p className=' text-2xl font-bold mb-2'>View Pdf:</p>
                         {/* <a href={pdfUrl}>
                             <button className='btn btn-success'>PdF Url</button>
                         </a> */}
                         <PdfCom pdfUrl={pdfUrl}></PdfCom>
+
+                        
+
                     </div>
                     <p className='text-center md:text-left mt-5 '><span className='text-2xl font-bold'>QuickNote: <span className='font-medium text-lg md:text-xl'>{quickNote}</span></span></p>
                     <div className="mt-5 shadow-xl shadow-red-400  border mb-10 rounded-md">

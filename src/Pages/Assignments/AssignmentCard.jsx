@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FaArrowLeft, FaArrowRight, FaEdit } from 'react-icons/fa';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -6,9 +6,13 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
+// import AOS from 'aos';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
+    // aos animation
+    AOS.init();
     const { user } = useContext(AuthContext)
     const currentUser = user?.email;
     // console.log(user)
@@ -61,8 +65,10 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
             }
         });
     }
+ 
     return (
-        <div>
+        <div data-aos="fade-up"
+        data-aos-duration='2000' >
             <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]">
                 <div >
                     <figure className='rounded-t-2xl'><img src={PhotoUrl} alt="Shoes" className='h-[250px] w-full' /></figure>
@@ -103,7 +109,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
                         </Link>
                     </div>
                     <ToastContainer></ToastContainer>
-                <p className='text-center'><span className='font-semibold'>Create By : </span><span className='text-sm font-semibold'>{userName}</span> <br /><span className='text-blue-700'>({userEmail})</span></p>
+                    <p className='text-center'><span className='font-semibold'>Create By : </span><span className='text-sm font-semibold'>{userName}</span> <br /><span className='text-blue-700'>({userEmail})</span></p>
                 </div>
             </div>
         </div>

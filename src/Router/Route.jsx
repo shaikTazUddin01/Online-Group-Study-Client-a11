@@ -47,7 +47,7 @@ const Route = createBrowserRouter([
                 element:<SignUp></SignUp>
             },
             {
-                path:'/assignmentDetails/:id?email=',
+                path:'/assignmentDetails/:id',
                 element:<PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
                 loader:({params})=>fetch(`https://online-group-study-server-kappa.vercel.app/createAssignment/${params.id}`)
             },

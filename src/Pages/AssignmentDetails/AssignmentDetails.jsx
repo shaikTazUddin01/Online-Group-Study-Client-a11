@@ -1,13 +1,20 @@
 import { FaArrowRight } from 'react-icons/fa';
 import { AiFillDelete } from 'react-icons/ai';
 import { Link, useLoaderData } from 'react-router-dom';
+// import AOS from 'aos';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const AssignmentDetails = () => {
+    AOS.init
     const assignmentData = useLoaderData()
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignmentData;
 
     return (
-        <div className='max-w-7xl mx-auto'>
+        <div className='max-w-7xl mx-auto'
+            data-aos="fade-up"
+            data-aos-duration="3000"
+        >
             <div className='text-center mt-10'>
                 <h1 className='text-3xl md:text-5xl font-semibold'>Assignment Details</h1>
                 <p className='text-lg mt-1'>Take this challenge and make yourself</p>
@@ -33,13 +40,13 @@ const AssignmentDetails = () => {
                             <div className="bg-red-600 text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"><AiFillDelete></AiFillDelete><span>Delete Assignment</span></div>
                         </Link> */}
                         <Link to={`/takeAssignment/${_id}`}>
-                        <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"
-                        ><span>Take Assignment</span><FaArrowRight></FaArrowRight></div>
+                            <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"
+                            ><span>Take Assignment</span><FaArrowRight></FaArrowRight></div>
                         </Link>
                     </div>
 
 
-                  
+
 
 
                 </div>
