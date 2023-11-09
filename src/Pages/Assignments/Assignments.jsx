@@ -12,8 +12,9 @@ const Assignments = () => {
     const [loader, setLoader] = useState(true)
 
     //pagination
-    const count = loadAssignment?.length;
-    const itemPerPage = 6;
+    // const count = loadAssignment?.length;
+    const [count, setCount] = useState(loadAssignment?.length)
+    let itemPerPage = 6;
 
     const totalPage = Math.ceil(count / itemPerPage)
 
@@ -31,6 +32,7 @@ const Assignments = () => {
             .then(res => {
                 setAssignment(res.data)
                 setLoader(false)
+                itemPerPage = 6
             })
             .catch(err => console.log(err))
     }, [currentPage, itemPerPage])
@@ -48,9 +50,14 @@ const Assignments = () => {
 
     const handleDifficultLevel = (e) => {
         const level = e.target.value
-        axios.get(`https://online-group-study-server-kappa.vercel.app/getAssignmentUsingLevel?assignmentLevel=${level}`).then(res => setAssignment(res.data))
+        axios.get(`https://online-group-study-server-kappa.vercel.app/getAssignmentUsingLevel?assignmentLevel=${level}`)
+            .then(res => {
+                setAssignment(res.data)
+                setCount(res?.data?.length)
+                //  console.log(res?.data?.length)
+                setcurrentPage(0)
+            })
             .catch(err => console.log(err))
-        setcurrentPage(0)
 
     }
 
@@ -85,7 +92,6 @@ const Assignments = () => {
                     </select>
                 </div>
             </div>
-
 
             {
                 assignments?.length > 0 ?

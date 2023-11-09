@@ -27,31 +27,8 @@ const FeatureCard = ({item}) => {
                         <p className='text-end text-xl font-bold'>Mark: <span className='text-lg text-blue-700'>{mark}</span></p>
                     </div>
                     <div className="card-actions justify-between">
-                        {/* check currentuser == userEmail */}
-                        {/* {currentUser === userEmail ?
-                            <div className='flex gap-4'>
-                                <Link to={`/updateAssignment/${_id}`}>
-                                    <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"><FaEdit></FaEdit></div>
-                                </Link>
-
-                                <div className="bg-red-700 text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2" onClick={() => handleDeleteAssignment(_id)}><AiTwotoneDelete></AiTwotoneDelete></div>
-
-                            </div>
-                            :
-                            <div className='flex gap-4'>
-                                <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2" onClick={handleUserEdit}><FaEdit></FaEdit></div>
-
-                                <div className="bg-red-700 text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2" onClick={handleUserdelete}><AiTwotoneDelete></AiTwotoneDelete></div>
-                            </div>
-
-                        } */}
-                        {/* assignment details */}
-                        {/* <Link to={`/assignmentDetails/${_id}`}>
-                            <div className="bg-[var(--bg-primary)] text-white font-bold py-3 px-5 rounded-xl flex items-center justify-center gap-2"><span>View Details</span><FaArrowRight></FaArrowRight></div>
-                        </Link> */}
+                        
                     </div>
-                    
-                <p className='text-center'><span className='font-semibold'>Creadet : </span><span className='text-sm font-semibold'>{userName}</span><span className='text-blue-700'>({userEmail})</span></p>
                 </div>
             </div>
         </div>

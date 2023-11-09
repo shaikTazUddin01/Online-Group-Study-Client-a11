@@ -99,8 +99,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="hidden lg:flex w-1/4">
-          <a className=" normal-case text-xl flex items-center justify-center gap-2">
-            <img src={logo} alt="" /> <p>logo</p>
+          <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
+            <img src={logo} alt="" /> <p>STUDY</p>
           </a>
         </div>
       </div>
@@ -111,8 +111,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end flex lg:hidden">
         <div className="">
-        <a className=" normal-case text-xl flex items-center justify-center gap-2">
-            <img src={logo} alt="" /> <p>logo</p>
+        <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
+            <img src={logo} alt="" /> <p>STUDY</p>
           </a>
           {/* <ToastContainer></ToastContainer> */}
         </div>

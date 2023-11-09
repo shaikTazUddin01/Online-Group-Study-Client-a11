@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Document, Page } from 'react-pdf';
-import pdf from './1.pdf'
+// import pdf from './1.pdf'
 
 function PdfViwer({ pdfUrl }) {
   console.log("pdf url", pdfUrl)
@@ -31,3 +31,4 @@ function PdfViwer({ pdfUrl }) {
   );
 }
 export default PdfViwer
+

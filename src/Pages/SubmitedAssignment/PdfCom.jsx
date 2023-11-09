@@ -7,6 +7,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 ).toString();
 
 const PdfCom = ({ pdfUrl }) => {
+    // console.log(pdfUrl)
     return (
         <div>
             {/* <a href={pdfUrl}><button>taz</button></a> */}

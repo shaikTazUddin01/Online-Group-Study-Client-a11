@@ -6,6 +6,9 @@ const SubmitedAssignment = () => {
     const submitedAssignment = useLoaderData()
     const [pandingAssignment,setPandingAssignment]=useState([]);
     const[loader,setLoader]=useState(true)
+
+  
+
     useEffect(()=>{
         const panding=submitedAssignment?.filter(ass=>ass?.status !=='completed')
         setPandingAssignment(panding)
@@ -23,7 +26,7 @@ const SubmitedAssignment = () => {
             <h1 className='text-4xl text-center mt-10 font-bold' >All Submited Assignment</h1>
             <div className="bg-[var(--bg-primary)] h-[3px] mt-3 w-[20%] mx-auto"></div>
 
-            <div className="overflow-x-auto mt-10">
+            <div className="overflow-x-auto my-10">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -39,7 +42,7 @@ const SubmitedAssignment = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            pandingAssignment?.map(subAss => <SubmitedAssTable subAss={subAss} key={subAss?._d}></SubmitedAssTable>)
+                            pandingAssignment?.map(subAss => <SubmitedAssTable subAss={subAss} key={subAss?._id}></SubmitedAssTable>)
                         }
 
 

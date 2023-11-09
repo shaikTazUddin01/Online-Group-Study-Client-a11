@@ -17,6 +17,8 @@ import SubmitedAssignment from "../Pages/SubmitedAssignment/SubmitedAssignment";
 import GIveMark from "../Pages/SubmitedAssignment/GIveMark";
 
 
+
+
 const Route = createBrowserRouter([
     {
         path: '/',
@@ -45,7 +47,7 @@ const Route = createBrowserRouter([
                 element:<SignUp></SignUp>
             },
             {
-                path:'/assignmentDetails/:id',
+                path:'/assignmentDetails/:id?email=',
                 element:<PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
                 loader:({params})=>fetch(`https://online-group-study-server-kappa.vercel.app/createAssignment/${params.id}`)
             },
