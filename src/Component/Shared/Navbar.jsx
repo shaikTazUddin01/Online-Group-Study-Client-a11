@@ -44,7 +44,7 @@ const Navbar = () => {
       user ?
         <div className="pl-2">
           <div className='flex flex-col lg:justify-center lg:items-center px-5 lg:px-0'>
-            <abbr title="Click here to see profile" onClick={() => setopen(!open)} >
+            <abbr title={user.displayName} onClick={() => setopen(!open)} >
               <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full'
               />
             </abbr>

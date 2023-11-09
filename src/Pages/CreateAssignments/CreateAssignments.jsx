@@ -29,7 +29,7 @@ const CreateAssignments = () => {
         const NewAssignment = { title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName }
         
         // console.log(NewAssignment)
-        fetch('http://localhost:5000/createAssignment', {
+        fetch('https://online-group-study-server-kappa.vercel.app/createAssignment', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

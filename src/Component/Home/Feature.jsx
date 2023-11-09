@@ -5,7 +5,7 @@ import FeatureCard from './FeatureCard';
 const Feature = () => {
     const [card,setCard]=useState([])
     useEffect(()=>{
-        axios.get('http://localhost:5000/createAssignment')
+        axios.get('https://online-group-study-server-kappa.vercel.app/createAssignment')
         .then(res=>setCard(res.data))
     },[])
     return (

@@ -3,11 +3,13 @@ import AssignmentCard from "./AssignmentCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import './Assignment.css'
+import loadingGif from '../../assets/img/loading/Spinner-1s-200px.gif'
 
 const Assignments = () => {
     const loadAssignment = useLoaderData()
 
     // const[paginationData,setPaginationData]=useState()
+    const [loader, setLoader] = useState(true)
 
     //pagination
     const count = loadAssignment?.length;
@@ -20,24 +22,35 @@ const Assignments = () => {
     const [currentPage, setcurrentPage] = useState(0)
 
 
-    useEffect(() => {
-        axios.get(`http://localhost:5000/pagination?page=${currentPage}&size=${itemPerPage}`)
-            .then(res => setAssignment(res.data))
-            .catch(err => console.log(err))
-    }, [currentPage, itemPerPage])
-
-
-
 
     //set data by filter--->
     const [assignments, setAssignment] = useState()
 
+    useEffect(() => {
+        axios.get(`https://online-group-study-server-kappa.vercel.app/pagination?page=${currentPage}&size=${itemPerPage}`)
+            .then(res => {
+                setAssignment(res.data)
+                setLoader(false)
+            })
+            .catch(err => console.log(err))
+    }, [currentPage, itemPerPage])
+
+    if (loader) {
+        return (
+            <div className='min-h-screen flex justify-center items-center'>
+                <img src={loadingGif} alt="" />
+            </div>
+        )
+    }
+
+
+
 
     const handleDifficultLevel = (e) => {
         const level = e.target.value
-        axios.get(`http://localhost:5000/getAssignmentUsingLevel?assignmentLevel=${level}`).then(res => setAssignment(res.data))
+        axios.get(`https://online-group-study-server-kappa.vercel.app/getAssignmentUsingLevel?assignmentLevel=${level}`).then(res => setAssignment(res.data))
             .catch(err => console.log(err))
-            setcurrentPage(0)
+        setcurrentPage(0)
 
     }
 

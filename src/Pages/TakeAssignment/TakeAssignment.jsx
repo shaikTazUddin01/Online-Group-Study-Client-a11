@@ -25,7 +25,7 @@ const TakeAssignment = () => {
 
         const takeAssignment={title,PhotoUrl,mark,pdfUrl,quickNote,userEmail:email,userName:displayName,status:"pending",givemark:'',feedBack:''}
 
-        axios.post('http://localhost:5000/submitedAssignment',takeAssignment)
+        axios.post('https://online-group-study-server-kappa.vercel.app/submitedAssignment',takeAssignment)
         .then(res=>{
             if(res.data.acknowledged){
                 // toast.success("successfully you submit this Assignment")

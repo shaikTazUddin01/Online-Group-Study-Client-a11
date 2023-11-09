@@ -28,7 +28,7 @@ const UpdateAssignment = () => {
         const NewAssignment = { title, PhotoUrl, assignmentLevel, mark, discription,date }
         // console.log(date)
         // if (currentUser === userEmail) {  
-            axios.put(`http://localhost:5000/createAssignment/${_id}`, NewAssignment)
+            axios.put(`https://online-group-study-server-kappa.vercel.app/createAssignment/${_id}`, NewAssignment)
                 .then(res => {
                     if (res?.data?.modifiedCount) {
                         Swal.fire({

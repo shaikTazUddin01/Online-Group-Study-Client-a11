@@ -9,7 +9,7 @@ const MyAssignments = () => {
     const userEmail = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myAssignment?email=${userEmail}`,{credentials:'include'})
+        fetch(`https://online-group-study-server-kappa.vercel.app/myAssignment?email=${userEmail}`,{credentials:'include'})
             .then(res => res.json())
             .then(data => setMyAssignment(data));
 

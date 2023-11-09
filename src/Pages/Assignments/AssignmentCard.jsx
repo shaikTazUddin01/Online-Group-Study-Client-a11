@@ -36,7 +36,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/createAssignment/${_id}`)
+                axios.delete(`https://online-group-study-server-kappa.vercel.app/createAssignment/${_id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({

@@ -30,7 +30,7 @@ const Route = createBrowserRouter([
             {
                 path: '/assignment',
                 element:<Assignments></Assignments>,
-                loader:()=>fetch('http://localhost:5000/createAssignment')
+                loader:()=>fetch('https://online-group-study-server-kappa.vercel.app/createAssignment')
             },
             {
                 path: '/createassignment',
@@ -47,7 +47,7 @@ const Route = createBrowserRouter([
             {
                 path:'/assignmentDetails/:id',
                 element:<PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/createAssignment/${params.id}`)
+                loader:({params})=>fetch(`https://online-group-study-server-kappa.vercel.app/createAssignment/${params.id}`)
             },
             {
                 path:'/myAssignments',
@@ -56,23 +56,23 @@ const Route = createBrowserRouter([
             {
                 path:'/updateAssignment/:id',
                 element:<PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/createAssignment/${params.id}`)
+                loader:({params})=>fetch(`https://online-group-study-server-kappa.vercel.app/createAssignment/${params.id}`)
             },
             {
                 path:'/takeAssignment/:id',
                 element:<PrivateRoute><TakeAssignment></TakeAssignment></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/createAssignment/${params.id}`)
+                loader:({params})=>fetch(`https://online-group-study-server-kappa.vercel.app/createAssignment/${params.id}`)
             },
             {
                 path:'/submitedAssingment',
                 element:<PrivateRoute><SubmitedAssignment></SubmitedAssignment></PrivateRoute>,
-                loader:()=>fetch('http://localhost:5000/submitedAssignment')
+                loader:()=>fetch('https://online-group-study-server-kappa.vercel.app/submitedAssignment')
 
             },
             {
                 path:'/givemark/:id',
                 element:<PrivateRoute><GIveMark></GIveMark></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/submitedAssignment/${params.id}`)
+                loader:({params})=>fetch(`https://online-group-study-server-kappa.vercel.app/submitedAssignment/${params.id}`)
             }
         ]
     }
