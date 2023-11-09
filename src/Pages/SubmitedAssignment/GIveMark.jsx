@@ -57,14 +57,14 @@ const GIveMark = () => {
                     <img src={PhotoUrl} alt="" className=' w-full rounded-xl ' />
                 </div>
                 {/* body */}
-                <div className='px-5'>
+                <div className='px-5 text-center md:text-left'>
                     <h2 className="text-xl md:text-2xl font-semibold">
                         Assignment Name: {title}
                     </h2>
                     <h1 className='font-bold mt-2 text-[#585858]'><span className='text-lg'>Examinee Name:</span> {userName} <span className='text-[#4e37aa]'>({userEmail})</span></h1>
 
-                    <div className='flex justify-between my-2'>
-                        <p className=' text-2xl font-bold'>Total Mark: <span className='text-xl text-blue-700'>{mark}</span></p>
+                    <div className='flex justify-center md:justify-between my-2'>
+                        <p className=' text-2xl font-bold '>Total Mark: <span className='text-xl text-blue-700'>{mark}</span></p>
                     </div>
 
                     <div>
@@ -73,7 +73,7 @@ const GIveMark = () => {
                         </a> */}
                         <PdfCom pdfUrl={pdfUrl}></PdfCom>
                     </div>
-                    <p className='text-center md:text-left mt-5 '><span className='text-2xl font-bold'>QuickNote: <span className='font-medium'>{quickNote}</span></span></p>
+                    <p className='text-center md:text-left mt-5 '><span className='text-2xl font-bold'>QuickNote: <span className='font-medium text-lg md:text-xl'>{quickNote}</span></span></p>
                     <div className="mt-5 shadow-xl shadow-red-400  border mb-10 rounded-md">
 
                         <form className="card-body " onSubmit={handleGiveMark}>

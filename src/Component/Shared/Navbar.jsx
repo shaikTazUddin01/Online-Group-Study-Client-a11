@@ -7,7 +7,11 @@ import logo from '/vite.svg'
 
 const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext)
-  const [open, setopen] = useState(false)
+  const [open, setopen] = useState(false);
+  const [hover,sethover]=useState(false)
+  const onHover=()=>{
+    sethover(!hover)
+  }
   // console.log(user)
   const handleLogOut = () => {
     handleSignOut()
@@ -42,15 +46,18 @@ const Navbar = () => {
 
     {
       user ?
-        <div className="pl-2">
-          <div className='flex flex-col lg:justify-center lg:items-center px-5 lg:px-0'>
-            <abbr title={user.displayName} onClick={() => setopen(!open)} >
-              <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full'
+        <div className="pl-2" onMouseEnter={onHover} onMouseLeave={onHover}>
+          {/* {
+            hover && open !== true &&<p className="z-10 bg-black font-4xl absolute mt-10 p-1 rounded ">{user.displayName}</p>
+          } */}
+          <div className='flex flex-col lg:justify-center lg:items-center px-5 lg:px-0'  >
+            {/* <abbr title={user.displayName} > */}
+              <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full' onClick={() => setopen(!open)}
               />
-            </abbr>
+            {/* </abbr> */}
 
             {
-              open === true ?
+              hover === true ?
                 <div className='lg:mt-40 text-white border border-[#FFFFF]
                                  bg-[#2b2b2b] p-4 mt-10 
                              rounded-md z-20 ml-8 lg:ml-0 lg:mr-40 absolute
