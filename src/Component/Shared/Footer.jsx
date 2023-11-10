@@ -16,10 +16,10 @@ const Footer = () => {
             </nav>
             <nav className='hidden md:flex md:flex-col'>
                 <header className="footer-title">Menu</header>
-                <a className="link link-hover" >Home</a>
-                <a className="link link-hover">Assignment</a>
-                <a className="link link-hover">Sign In</a>
-                <a className="link link-hover">Sign Up</a>
+                <a className="link link-hover" href='/'>Home</a>
+                <a className="link link-hover" href='/assignment'>Assignment</a>
+                <a className="link link-hover" href='login'>Sign In</a>
+                <a className="link link-hover" href='signup'>Sign Up</a>
             </nav>
             <nav className='hidden md:flex md:flex-col'>
                 <header className="footer-title">Legal</header>

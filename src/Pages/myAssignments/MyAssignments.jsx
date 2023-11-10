@@ -29,7 +29,7 @@ const MyAssignments = () => {
     return (
         <div className='min-h-[90vh] mx-auto max-w-7xl px-10'>
             <h1 className='text-4xl text-center mt-10 font-bold' >My Assignent</h1>
-            <div className="bg-[var(--bg-primary)] h-[3px] mt-3 w-[15%] mx-auto"></div>
+            <div className="bg-[var(--bg-primary)] h-[3px] mt-3 w-[30%] md:w-[15%] mx-auto"></div>
             <div className="overflow-x-auto my-10">
                 <table className="table">
                     {/* head */}

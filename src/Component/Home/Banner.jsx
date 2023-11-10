@@ -8,7 +8,7 @@ const Banner = () => {
     AOS.init();
     return (
         <div className='bg-cover h-[500px] md:bg-fixed' style={{ backgroundImage: `url(${BannerImg})` }}>
-            <div className='bg-[#0d0d0d9c] bg-cover h-[500px] '>
+            <div className='bg-[#0d0d0d9c] bg-cover h-[500px] md:bg-fixed '>
                 <div className='justify-center items-center flex flex-col h-full'>
                     <div className='w-full text-center
                      md:text-left md:px-10 lg:px-20'

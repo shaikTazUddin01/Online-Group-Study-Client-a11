@@ -6,7 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const AssignmentDetails = () => {
-    AOS.init
+    AOS.init()
     const assignmentData = useLoaderData()
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignmentData;
 

@@ -10,9 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CreateAssignments = () => {
     const { user } = useContext(AuthContext)
-    // const navigate = useNavigate()
-    // console.log(user)
-    //react date picker
+    // const userEmail = user?.email
     const [startDate, setStartDate] = useState(new Date());
     const handleCreateAssignment = e => {
         e.preventDefault()

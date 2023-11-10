@@ -33,7 +33,7 @@ const PdfCom = ({ pdfUrl }) => {
                            
                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-red-500">✕</button>
                         </form>
-                        <iframe src={pdfUrl} width="95%" height="500px" className='mx-auto mt-4'> </iframe>
+                        <iframe src={pdfUrl} width="95%" height="500px" className='mx-auto my-4'> </iframe>
                     </div>
                 </dialog>
 

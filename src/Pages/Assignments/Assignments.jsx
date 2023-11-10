@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import './Assignment.css'
 import loadingGif from '../../assets/img/loading/Spinner-1s-200px.gif'
+// import AOS from 'aos';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Assignments = () => {
     const loadAssignment = useLoaderData()
@@ -36,7 +40,7 @@ const Assignments = () => {
             })
             .catch(err => console.log(err))
     }, [currentPage, itemPerPage])
-
+  
     if (loader) {
         return (
             <div className='min-h-screen flex justify-center items-center'>
@@ -45,7 +49,7 @@ const Assignments = () => {
         )
     }
 
-
+  
 
 
     const handleDifficultLevel = (e) => {
@@ -73,14 +77,19 @@ const Assignments = () => {
         }
     }
 
+// aos animation
+AOS.init();
 
     return (
         <div className="min-h-[90vh]">
-            <div className="my-10 text-center">
+            <div className="my-10 text-center "
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            >
 
-                <h1 className="text-6xl mb-1">Assignments For You</h1>
+                <h1 className="text-4xl md:text-6xl mb-1">Assignments For You</h1>
                 <p className="text-[16px] mt-2">see assignment accept challenge and increase your knowledge</p>
-                <div className="bg-[var(--bg-primary)] h-[3px] mt-2 w-[20%] mx-auto"></div>
+                <div className="bg-[var(--bg-primary)] h-[3px] mt-2 mb-5 w-[20%] mx-auto"></div>
                 {/* filter Difficult Level */}
                 <div >
                     <span className="text-xl font-semibold">Filter Assignments Based On Assignment Difficulty Level </span>
@@ -92,6 +101,15 @@ const Assignments = () => {
                     </select>
                 </div>
             </div>
+           
+
+        <div 
+         data-aos="fade-up"
+         data-aos-duration="1000"
+         data-aos-delay="400"
+        >
+
+        
 
             {
                 assignments?.length > 0 ?
@@ -111,7 +129,7 @@ const Assignments = () => {
                     </div>
             }
 
-
+</div>
 
 
 

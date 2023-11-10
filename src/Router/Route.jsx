@@ -68,7 +68,7 @@ const Route = createBrowserRouter([
             {
                 path:'/submitedAssingment',
                 element:<PrivateRoute><SubmitedAssignment></SubmitedAssignment></PrivateRoute>,
-                loader:()=>fetch('https://online-group-study-server-kappa.vercel.app/submitedAssignment')
+                // loader:()=>fetch('https://online-group-study-server-kappa.vercel.app/submitedAssignment')
 
             },
             {

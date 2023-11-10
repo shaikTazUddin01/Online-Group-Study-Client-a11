@@ -21,10 +21,11 @@ const Faq = () => {
                     <img src={faqimg} alt="" className='rounded-xl' />
                 </div>
                 <div className='w-full md:w-1/2 space-y-2'>
-                    <div className="collapse collapse-arrow bg-base-200"
+                    <div className="collapse collapse-arrow  bg-[var(--bg-primary)] text-white "
                     data-aos="fade-up"
                     data-aos-anchor-placement="top-bottom"
-                     data-aos-duration="4500"
+                     data-aos-duration="2000"
+                     data-aos-delay="100"
                     >
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">
@@ -34,10 +35,11 @@ const Faq = () => {
                             <p>first you go assignment page and view details one assignmet here you see take assignme button i you can submit assignment</p>
                         </div>
                     </div>
-                    <div className="collapse collapse-arrow bg-base-200"
+                    <div className="collapse collapse-arrow  bg-[var(--bg-primary)] text-white"
                     data-aos="fade-up"
                     data-aos-anchor-placement="top-bottom"
-                     data-aos-duration="3500"
+                    data-aos-duration="2000"
+                    data-aos-delay="150"
                     >
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">
@@ -47,10 +49,11 @@ const Faq = () => {
                             <p>no you can not edit file after it's uploaded</p>
                         </div>
                     </div>
-                    <div className="collapse collapse-arrow bg-base-200"
+                    <div className="collapse collapse-arrow  bg-[var(--bg-primary)] text-white"
                     data-aos="fade-up"
                     data-aos-anchor-placement="top-bottom"
-                     data-aos-duration="3000"
+                    data-aos-duration="2000"
+                    data-aos-delay="200"
                     >
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">
@@ -60,10 +63,11 @@ const Faq = () => {
                             <p>the file formats are accepted for assignment uploads is pdf or doc</p>
                         </div>
                     </div>
-                    <div className="collapse collapse-arrow bg-base-200"
+                    <div className="collapse collapse-arrow  bg-[var(--bg-primary)] text-white"
                     data-aos="fade-up"
                     data-aos-anchor-placement="top-bottom"
-                     data-aos-duration="2500"
+                    data-aos-duration="2000"
+                    data-aos-delay="250"
                     >
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">
@@ -73,10 +77,11 @@ const Faq = () => {
                             <p>you can  check the status of my assignment page</p>
                         </div>
                     </div>
-                    <div className="collapse collapse-arrow bg-base-200"
+                    <div className="collapse collapse-arrow  bg-[var(--bg-primary)] text-white"
                     data-aos="fade-up"
                     data-aos-anchor-placement="top-bottom"
-                     data-aos-duration="2000"
+                    data-aos-duration="2000"
+                    data-aos-delay="280"
                     >
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">

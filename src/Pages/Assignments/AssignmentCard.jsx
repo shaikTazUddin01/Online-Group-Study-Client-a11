@@ -6,24 +6,30 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-// import AOS from 'aos';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
-    // aos animation
-    AOS.init();
+    
     const { user } = useContext(AuthContext)
     const currentUser = user?.email;
     // console.log(user)
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignment;
     //check current user to update assignment
     const handleUserEdit = () => {
-        toast.error("Only the user is able to Update an assignment who has created the assignment")
+        // toast.error("Only the user is able to Update an assignment who has created the assignment")
+        Swal.fire({
+            // title: "Deleted!",
+            text: "Only the user is able to Update an assignment who has created the assignment",
+            icon: "error"
+        });
     }
     //check current user to delete assignment
     const handleUserdelete = () => {
-        toast.error("Only the user is able to Delete an assignment who has created the assignment")
+        // toast.error("Only the user is able to Delete an assignment who has created the assignment")
+        Swal.fire({
+            // title: "Deleted!",
+            text: "Only the user is able to Delete an assignment who has created the assignment",
+            icon: "error"
+        });
     }
     //handle delete assignment
     const handleDeleteAssignment = (id) => {
@@ -67,8 +73,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
     }
  
     return (
-        <div data-aos="fade-up"
-        data-aos-duration='2000' >
+        <div  >
             <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]">
                 <div >
                     <figure className='rounded-t-2xl'><img src={PhotoUrl} alt="Shoes" className='h-[250px] w-full' /></figure>
@@ -109,7 +114,7 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
                         </Link>
                     </div>
                     <ToastContainer></ToastContainer>
-                    <p className='text-center'><span className='font-semibold'>Create By : </span><span className='text-sm font-semibold'>{userName}</span> <br /><span className='text-blue-700'>({userEmail})</span></p>
+                    <p className='text-center'><span className='font-semibold'>Created By : </span><span className='text-sm font-semibold'>{userName}</span> <br /><span className='text-blue-700'>({userEmail})</span></p>
                 </div>
             </div>
         </div>
