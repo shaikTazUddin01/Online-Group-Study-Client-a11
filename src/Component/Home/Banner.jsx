@@ -19,7 +19,8 @@ const Banner = () => {
                         <h1 className='text-white text-xl md:text-3xl lg:text-6xl font-bold lg:leading-[70px]'>
                             Take The First Step To <br />Knowledge With Us.
                         </h1>
-                        <button className='rounded-md btn btn-primary mt-5 '>View Assignment</button>
+                       <a href="/assignment">
+                        <button className='rounded-md btn btn-primary mt-5 '>View Assignment</button></a>
                     </div>
                     <div className='w-1/3'></div>
                 </div>
