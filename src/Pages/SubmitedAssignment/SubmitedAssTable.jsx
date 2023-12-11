@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const SubmitedAssTable = ({ subAss }) => {
-    const { _id,title, PhotoUrl, mark, pdfUrl, quickNote, userEmail, userName, status } = subAss
+    const { user } = useContext(AuthContext)
+    console.log(user.email)
+    const { _id, title, PhotoUrl, mark, pdfUrl, quickNote, userEmail, userName, status } = subAss
     return (
         <tr className='text-center'>
             <td>
@@ -19,19 +22,27 @@ const SubmitedAssTable = ({ subAss }) => {
                 </div>
             </td>
             <td>
-          {userName}
-          <br/>
-          {userEmail}
-        </td>
+                {userName}
+                <br />
+                {userEmail}
+            </td>
             <td>{mark}</td>
             {/* <td>{pdfUrl}</td> */}
             <td >
                 <span className='bg-green-700 text-white py-2 px-3 rounded-md'>
-                {status}
+                    {status}
                 </span>
-                </td>
+            </td>
             <th>
-                <Link to={`/givemark/${_id}`}><button className="bg-[var(--bg-primary)] text-white py-2 px-3 rounded-md">Give Mark</button></Link>
+                {
+                    user?.email === userEmail ?
+                        <div className='tooltip tooltip-left' data-tip="you cannot mark the assignment because this is your submitted assignment
+                        " >
+                            <button className="btn py-2 px-3" disabled>Give Mark</button>
+                        </div>
+                        :
+                        <Link to={`/givemark/${_id}`}><button className="bg-[var(--bg-primary)] text-white py-2 px-3 rounded-md" disabled>Give Mark</button></Link>
+                }
             </th>
         </tr>
     );
