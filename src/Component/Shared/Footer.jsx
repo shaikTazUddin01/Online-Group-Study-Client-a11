@@ -1,4 +1,4 @@
-import logo from '/vite.svg'
+import logo from '/logo.png'
 
 const Footer = () => {
     return (
