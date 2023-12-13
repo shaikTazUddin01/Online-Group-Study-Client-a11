@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 
 const TakeAssignment = () => {
-    const {user}=useContext(AuthContext)
+    const {user,darkTheme}=useContext(AuthContext)
     const{email,displayName}=user;
     const navigate=useNavigate()
 
@@ -46,7 +46,10 @@ const TakeAssignment = () => {
     return (
         <div>
             <div className=" min-h-[100vh] bg-cover" style={{ backgroundImage: `url(${loginbg})` }}>
-                <div className="flex justify-center items-center min-h-[100vh] bg-[#00000062]">
+                <div className={
+                    darkTheme?"flex justify-center items-center min-h-[100vh] bg-[#000000dc]":
+                    "flex justify-center items-center min-h-[100vh] bg-[#00000062]"
+                }>
                     <div className="card flex-shrink-0  md:w-2/4 lg:w-2/5 shadow-2xl bg-[#ffffff71] my-10">
                         <h1 className='flex justify-center text-2xl md:text-3xl lg:text-4xl font-bold py-5 bg-[var(--bg-primary)] rounded-t-2xl text-white'>Take Assignment</h1>
                         <form className="card-body" onSubmit={handleTakeAssignment}>

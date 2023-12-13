@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -16,11 +16,13 @@ import qr from '../../assets/img/upcomeing/QRCode.png'
 import translator from '../../assets/img/upcomeing/translator.jpg'
 
 // import required modules
-import { EffectCoverflow, Pagination,Autoplay } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 // import AOS from 'aos';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { AuthContext } from '../../Provider/AuthProvider';
 const UpCameIng = () => {
+  const { darkTheme } = useContext(AuthContext)
   // ation
   AOS.init();
   return (
@@ -52,12 +54,14 @@ const UpCameIng = () => {
             disableOnInteraction: false,
           }}
           pagination={true}
-          modules={[EffectCoverflow, Pagination,Autoplay]}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
           className="mySwiper"
         >
 
           <SwiperSlide>
-            <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" >
+            <div className={darkTheme ? "card bg-[#343434]  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" :
+              "card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"
+            } >
               <div >
                 <figure className='rounded-t-2xl'><img src={ebook} alt="Shoes" className='h-[250px] w-full' /></figure>
               </div>
@@ -77,8 +81,10 @@ const UpCameIng = () => {
           </SwiperSlide>
 
           <SwiperSlide>
-            <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)] block" >
-              <div >
+            <div className={darkTheme ? "card bg-[#343434]  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" :
+              "card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"
+            } >
+              <div>
                 <figure className='rounded-t-2xl'><img src={translator} alt="Shoes" className='h-[250px] w-full' /></figure>
               </div>
               <div className="card-body">
@@ -94,7 +100,9 @@ const UpCameIng = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" >
+            <div className={darkTheme ? "card bg-[#343434]  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" :
+              "card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"
+            } >
               <div >
                 <figure className='rounded-t-2xl'><img src={ecommerce} alt="Shoes" className='h-[250px] w-full' /></figure>
               </div>
@@ -112,7 +120,9 @@ const UpCameIng = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" >
+            <div className={darkTheme ? "card bg-[#343434]  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" :
+              "card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"
+            } >
               <div >
                 <figure className='rounded-t-2xl'><img src={enventory} alt="Shoes" className='h-[250px] w-full' /></figure>
               </div>
@@ -130,7 +140,9 @@ const UpCameIng = () => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" >
+            <div className={darkTheme ? "card bg-[#343434]  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]" :
+              "card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"
+            } >
               <div >
                 <figure className='rounded-t-2xl'><img src={qr} alt="Shoes" className='h-[250px] w-full' /></figure>
               </div>
@@ -141,13 +153,13 @@ const UpCameIng = () => {
                 <p>
                   A QR code reader is a mobile app or device feature that scans and interprets QR codes, instantly translating the encoded information into actionable data, such as website links, contact details, or other digital content.
                 </p>
-               
+
                 <div className="card-actions justify-between">
                 </div>
               </div>
             </div>
           </SwiperSlide>
-          
+
 
         </Swiper>
       </div>

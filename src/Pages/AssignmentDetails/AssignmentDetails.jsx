@@ -4,23 +4,28 @@ import { Link, useLoaderData } from 'react-router-dom';
 // import AOS from 'aos';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AssignmentDetails = () => {
+    const {darkTheme}=useContext(AuthContext)
     AOS.init()
     const assignmentData = useLoaderData()
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignmentData;
 
     return (
-        <div className='max-w-7xl mx-auto'
+        <div className={
+            darkTheme?'max-w-7xl mx-auto bg-[#202020] text-white':'max-w-7xl mx-auto'
+        }
             data-aos="fade-up"
             data-aos-duration="3000"
         >
-            <div className='text-center mt-10'>
+            <div className='text-center pt-10'>
                 <h1 className='text-3xl md:text-5xl font-semibold'>Assignment Details</h1>
                 <p className='text-lg mt-1'>Take this challenge and make yourself</p>
                 <div className="bg-[var(--bg-primary)] h-[3px] mt-2 w-[30%] md:w-[15%] mx-auto"></div>
             </div>
-            <div className='flex flex-col lg:flex-row mt-10 mb-20 gap-10 justify-center items-center'>
+            <div className='flex flex-col lg:flex-row mt-10 pb-20 gap-10 justify-center items-center'>
                 <div className='lg:w-3/5 px-2 md:px-10 lg:px-0'>
                     <img src={PhotoUrl} alt="" className='h-[400px] w-full rounded-xl shadow-xl shadow-[var(--bg-primary)]' />
                 </div>
@@ -28,7 +33,7 @@ const AssignmentDetails = () => {
                     <h2 className="text-4xl font-semibold">
                         {title}
                     </h2>
-                    <h1 className='font-bold mt-2 text-[#585858]'><span className='text-lg'>CreatedBy :</span> {userName} <span className='text-[#4e37aa]'>({userEmail})</span></h1>
+                    <h1 className='font-bold mt-2'><span className='text-lg'>CreatedBy :</span> {userName} <span className='text-[#4e37aa]'>({userEmail})</span></h1>
                     <p className='font-medium my-2 text-[#4e37aa]'>{date}</p>
                     <div className='flex justify-between my-2'>
                         <p className='font-bold text-2xl '>Level: <span className='text-xl text-red-700'>{assignmentLevel}</span></p>

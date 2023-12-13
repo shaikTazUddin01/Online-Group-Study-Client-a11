@@ -4,7 +4,7 @@ import SubmitedAssTable from './SubmitedAssTable';
 import loadingGif from '../../assets/img/loading/Spinner-1s-200px.gif'
 import { AuthContext } from '../../Provider/AuthProvider';
 const SubmitedAssignment = () => {
-    const{user}=useContext(AuthContext)
+    const{user,darkTheme}=useContext(AuthContext)
     const userEmail=user?.email
     // console.log(userEmail)
     // const submitedAssignment = useLoaderData()
@@ -36,21 +36,24 @@ const SubmitedAssignment = () => {
         )
     }
     return (
-        <div className='min-h-[90vh] mx-auto max-w-7xl px-10 bg-slate-50'>
+        <div className={
+            darkTheme?'min-h-[90vh] mx-auto max-w-7xl px-10 bg-[#202020] text-white'
+            :'min-h-[90vh] mx-auto max-w-7xl px-10 bg-slate-50'
+        }>
             <h1 className='text-4xl text-center mt-10 font-bold' >All Submited Assignment</h1>
             <div className="bg-[var(--bg-primary)] h-[3px] mt-3  w-[30%] md:w-[20%] mx-auto"></div>
 
             <div className="overflow-x-auto my-10">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr className='text-xl font-semibold text-black text-center'>
+                    <thead className={darkTheme?'text-white':'text-black'}>
+                        <tr className='text-xl font-semibold text-center'>
                             <th>Title</th>
                             <th>Examinee Name</th>
                             <th>Total Mark</th>
-                            {/* <th>Pdf Url</th> */}
                             <th>Status</th>
-                            <th>Give Mark</th>
+                            <th>Mark</th>
+                            {/* <th>Pdf Url</th> */}
                         </tr>
                     </thead>
                     <tbody>

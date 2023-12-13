@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
 const SignUp = () => {
-    const { handleSignUp } = useContext(AuthContext)
+    const { handleSignUp,darkTheme } = useContext(AuthContext)
     const navigete=useNavigate()
     const handleSignUpForm = (e) => {
         e.preventDefault()
@@ -35,7 +35,9 @@ const SignUp = () => {
     return (
         <div>
             <div className=" min-h-[100vh] bg-cover" style={{ backgroundImage: `url(${loginbg})` }}>
-                <div className="flex justify-center items-center min-h-[100vh] bg-[#00000062]">
+                <div className={
+                    darkTheme?"flex justify-center items-center min-h-[100vh] bg-[#000000e5]":"flex justify-center items-center min-h-[100vh] bg-[#00000062]"
+                }>
                     <div className="card flex-shrink-0 w-[90%] md:w-2/4 lg:w-2/5  shadow-2xl bg-[#ffffff71] my-10">
                         <h1 className='flex justify-center text-3xl lg:text-4xl font-bold py-5 bg-[var(--bg-primary)] rounded-t-2xl text-white'>Sign Up</h1>
                         <form className="card-body" onSubmit={handleSignUpForm}>

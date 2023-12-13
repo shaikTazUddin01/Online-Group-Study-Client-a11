@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
     
-    const { user } = useContext(AuthContext)
+    const { user,darkTheme } = useContext(AuthContext)
     const currentUser = user?.email;
     // console.log(user)
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = assignment;
@@ -74,7 +74,11 @@ const AssignmentCard = ({ assignment, setAssignment, loadAssignment }) => {
  
     return (
         <div  >
-            <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]">
+            <div className={darkTheme ?
+                "card bg-[#343434]  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"
+                :
+                "card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"
+            }>
                 <div >
                     <figure className='rounded-t-2xl'><img src={PhotoUrl} alt="Shoes" className='h-[250px] w-full' /></figure>
 

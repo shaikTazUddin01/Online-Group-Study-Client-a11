@@ -10,7 +10,7 @@ const ScrollToTop = () => {
     const handleScroll = () => {
         const scrollY = window.scrollY;
         console.log(scrollY)
-        setShowButton(scrollY > 100); // Adjust the scroll threshold as needed
+        setShowButton(scrollY > 50); // Adjust the scroll threshold as needed
         // setShowButton(scrollY < 1000); // Adjust the scroll threshold as needed
     };
 

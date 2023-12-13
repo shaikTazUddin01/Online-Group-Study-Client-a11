@@ -6,7 +6,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2'
 // import { ToastContainer, toast } from 'react-toastify';
 const Login = () => {
-    const { handleSignIn, handleGoogleSignIn } = useContext(AuthContext)
+    const { handleSignIn, handleGoogleSignIn ,darkTheme} = useContext(AuthContext)
     const location = useLocation()
     // console.log(location);
     const navigate = useNavigate()
@@ -61,7 +61,10 @@ const Login = () => {
     return (
         <div>
             <div className=" min-h-[100vh] bg-cover" style={{ backgroundImage: `url(${loginbg})` }}>
-                <div className="flex justify-center items-center min-h-[100vh] bg-[#00000062]">
+                <div className={
+                    darkTheme?"flex justify-center items-center min-h-[100vh] bg-[#000000e4]":
+                    "flex justify-center items-center min-h-[100vh] bg-[#00000062]"
+                }>
                     <div className="card flex-shrink-0 w-[90%] md:max-w-sm shadow-2xl bg-[#ffffff71] my-10">
                         <h1 className='flex justify-center text-3xl lg:text-4xl font-bold py-5 bg-[var(--bg-primary)] rounded-t-2xl text-white'>Sign In</h1>
                         <form className="card-body" onSubmit={handleSignInForm}>

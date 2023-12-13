@@ -28,6 +28,8 @@ const AuthProvider = ({ children }) => {
     const handleSignOut = () => {
         return signOut(auth);
     }
+    // setTheme color
+    const[darkTheme,setTheme]=useState()
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             const userEmail=currentUser?.email || user?.email;
@@ -59,8 +61,9 @@ const AuthProvider = ({ children }) => {
         handleGoogleSignIn,
         handleSignOut,
         user,
-        loader
-
+        loader,
+        setTheme,
+        darkTheme
     }
     return <AuthContext.Provider value={AuthInFo}>
         {children}

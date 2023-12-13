@@ -5,7 +5,7 @@ import loadingGif from '../../assets/img/loading/Spinner-1s-200px.gif'
 
 const MyAssignments = () => {
     const [myAssignment, setMyAssignment] = useState([]);
-    const { user } = useContext(AuthContext)
+    const { user ,darkTheme} = useContext(AuthContext)
 
     const[loader,setLoader]=useState(true)
     const userEmail = user?.email;
@@ -33,8 +33,8 @@ const MyAssignments = () => {
             <div className="overflow-x-auto my-10">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr className='text-xl font-semibold text-black text-center'>
+                    <thead className={darkTheme?"text-white":"text-black"}>
+                        <tr className='text-xl font-semibold  text-center'>
                             <th>Title</th>
                             <th>Total Mark</th>
                             <th>Obtain Mark</th>

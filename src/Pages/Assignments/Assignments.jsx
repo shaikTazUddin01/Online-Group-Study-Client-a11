@@ -1,15 +1,17 @@
 import { useLoaderData } from "react-router-dom";
 import AssignmentCard from "./AssignmentCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import './Assignment.css'
 import loadingGif from '../../assets/img/loading/Spinner-1s-200px.gif'
 // import AOS from 'aos';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Assignments = () => {
+    const {darkTheme}=useContext(AuthContext)
     const loadAssignment = useLoaderData()
 
     // const[paginationData,setPaginationData]=useState()
@@ -81,8 +83,8 @@ const Assignments = () => {
 AOS.init();
 
     return (
-        <div className="min-h-[90vh]">
-            <div className="my-10 text-center "
+        <div className={darkTheme?"min-h-[90vh] bg-[#202020] text-white ":"min-h-[90vh] "}>
+            <div className="py-10 text-center "
             data-aos="fade-up"
             data-aos-duration="1500"
             >
@@ -93,7 +95,7 @@ AOS.init();
                 {/* filter Difficult Level */}
                 <div >
                     <span className="text-xl font-semibold">Filter Assignments Based On Assignment Difficulty Level </span>
-                    <select name="" id="" className="rounded border-[var(--bg-primary)] mt-5 border-2 text-lg font-semibold py-1 px-2" onChange={handleDifficultLevel}>
+                    <select name="" id="" className="rounded border-[var(--bg-primary)] mt-5 border-2 text-lg font-semibold py-1 px-2 text-black" onChange={handleDifficultLevel}>
                         <option value="all" >--See All--</option>
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
@@ -133,7 +135,7 @@ AOS.init();
 
 
 
-            <div className="text-center my-10 pagination">
+            <div className="text-center py-10 pagination">
                 <button className=" py-2 rounded-md mr-5  px-6 text-[16px]" onClick={handlePri}>Privous</button>
                 {
                     pages?.map(page => <button key={page} onClick={() => setcurrentPage(page)} className={currentPage == page ? 'selected py-2 rounded-md mr-5  px-6 text-[16px]' : 'py-2 rounded-md mr-5  px-6 text-[16px]'}>{page + 1}</button>)

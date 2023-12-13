@@ -4,12 +4,31 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from 'sweetalert2'
 import logo from '/logo.png'
+import { MdLightMode } from "react-icons/md";
+import { CiLight } from "react-icons/ci";
 
 const Navbar = () => {
-  const { user, handleSignOut } = useContext(AuthContext)
+  const { user, handleSignOut,setTheme,darkTheme } = useContext(AuthContext)
   const [open, setopen] = useState(false);
-  const [hover,sethover]=useState(false)
-  const onHover=()=>{
+  const [hover, sethover] = useState(false)
+
+
+// change theme
+const [colors, setcolor] = useState(false)
+    setTheme(colors)
+    console.log('theme:',darkTheme)
+    console.log(colors)
+    const handleTheme = () => {
+        setcolor(!colors)
+    }
+
+
+
+
+
+
+
+  const onHover = () => {
     sethover(!hover)
   }
   // console.log(user)
@@ -47,13 +66,11 @@ const Navbar = () => {
     {
       user ?
         <div className="pl-2" onMouseEnter={onHover} onMouseLeave={onHover}>
-          {/* {
-            hover && open !== true &&<p className="z-10 bg-black font-4xl absolute mt-10 p-1 rounded ">{user.displayName}</p>
-          } */}
+
           <div className='flex flex-col lg:justify-center lg:items-center px-5 lg:px-0'  >
             {/* <abbr title={user.displayName} > */}
-              <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full' onClick={() => setopen(!open)}
-              />
+            <img src={user?.photoURL ? user.photoURL : ""} alt="img" className='w-10 h-10 border rounded-full' onClick={() => setopen(!open)}
+            />
             {/* </abbr> */}
 
             {
@@ -84,12 +101,36 @@ const Navbar = () => {
 
         </>
     }
+{/* change theme */}
+
+
+
+
+    <p onClick={handleTheme} className="bg-transparent swap swap-rotate
+     hover:bg-transparent p-0 mt-[6px] -ml-24 lg:ml-4  ">
+      {!colors ?
+        <div className="flex justify-center items-center">
+          <MdLightMode className="text-2xl text-black"></MdLightMode>
+        </div>
+
+        :
+        <div className="flex justify-center items-center ">
+          <CiLight className="text-2xl "></CiLight>
+        </div>
+      }
+
+    </p>
+
+
+
+
+
 
 
   </>
   return (
     <div className="navbar bg-[var(--bg-primary)] text-white font-bold px-10 ">
-      <div className="navbar-start">
+      <div className="navbar-start lg:w-[20%]">
         <div className="dropdown -ml-5">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -98,21 +139,21 @@ const Navbar = () => {
             {navItem}
           </ul>
         </div>
-        <div className="hidden lg:flex w-1/4">
+        <div className="hidden lg:flex">
           <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
-            <img src={logo} alt="" className="mt-2" />
+            <img src={logo} alt="" className="mt-2 w-[130px]" />
           </a>
         </div>
       </div>
-      <div className="navbar-end hidden lg:flex w-3/4">
+      <div className="navbar-end hidden lg:flex w-[80%] ">
         <ul className="menu menu-horizontal px-1 text-md">
           {navItem}
         </ul>
       </div>
       <div className="navbar-end flex lg:hidden">
         <div className="">
-        <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
-            <img src={logo} alt="" /> <p>STUDY</p>
+          <a className=" normal-case text-xl flex items-center justify-center gap-2" href="/">
+            <img src={logo} alt="" className="w-[130px] mt-3"/> <p></p>
           </a>
           {/* <ToastContainer></ToastContainer> */}
         </div>

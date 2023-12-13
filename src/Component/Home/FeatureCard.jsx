@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiTwotoneDelete } from 'react-icons/ai';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const FeatureCard = ({item}) => {
+    const{darkTheme}=useContext(AuthContext)
     const { _id, title, PhotoUrl, assignmentLevel, mark, date, discription, userEmail, userName } = item;
     return (
         <div>
-            <div className="card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]">
+            <div className={darkTheme?"card bg-[#343434]  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]":"card bg-base-100  shadow-lg hover:shadow-xl shadow-[var(--bg-primary)] hover:shadow-[var(--bg-primary)]"}>
                 <div >
                     <figure className='rounded-t-2xl'><img src={PhotoUrl} alt="Shoes" className='h-[250px] w-full' /></figure>
 
